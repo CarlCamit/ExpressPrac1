@@ -31,7 +31,39 @@ Content-Type: application/json
 DELETE http://localhost:7000/animals/2
 
 ###
-PATCH  http://localhost:7000/animals/2
+PATCH  http://localhost:7000/animals/1
+Content-Type: application/json
+
+{
+    "name": "Zebra"
+}
+
+GET http://localhost:7000/
+
+###
+
+GET http://localhost:7000/areas
+###
+
+GET http://localhost:7000/areas/4
+###
+
+GET http://localhost:7000/areas/6
+###
+
+POST http://localhost:7000/areas
+Content-Type: application/json
+
+{
+    "name": "Lion",
+    "count": 94
+}
+
+###
+DELETE http://localhost:7000/areas/2
+
+###
+PATCH  http://localhost:7000/areas/1
 Content-Type: application/json
 
 {
