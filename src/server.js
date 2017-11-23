@@ -7,7 +7,8 @@ server.use(bodyParser.json())
 
 server.use('/', [
     require('./routes/tickets'),
-    require('./routes/animals')
+    require('./routes/animals'),
+    require('./routes/seacritters')
 ])
 
 server.listen(7000, () => {

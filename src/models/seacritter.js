@@ -1,32 +1,32 @@
-let animals = [
+let seaCritters = [
     {
         id: 1,
-        name: "Meerkat",
+        name: "Salmon",
         count: 27
     },
     {
         id: 2,
-        name: "Rhinoceros",
+        name: "Shark",
         count: 4
     },
     {
         id: 3,
-        name: "Giraffe",
+        name: "Penguin",
         count: 8
     },
     {
         id: 4,
-        name: "Zebra",
+        name: "Octopus",
         count: 3
     },
     {
         id: 5,
-        name: "Lion",
+        name: "Dewgong",
         count: 19
     },
     {
         id: 6,
-        name: "Elephant",
+        name: "Sea Lion",
         count: 93
     }
 ]
@@ -36,7 +36,7 @@ let nextID = 7
 // Read
 
 function all() {
-    return animals.sort(function(a, b) {
+    return seaCritters.sort(function(a, b) {
         if (a.name < b.name) {
             return -1
         }
@@ -52,52 +52,52 @@ function all() {
 function find(id) {
     // Ensure an id in an integer
     id = parseInt(id, 10)
-    let foundAnimal = null
-    animals.forEach((animal) => {
-        if (animal.id === id) {
-            foundAnimal = animal
+    let foundSeaCritter = null
+    seaCritters.forEach((seaCritter) => {
+        if (seaCritter.id === id) {
+            foundSeaCritter = seaCritter
         }
     })
-    return foundAnimal
+    return foundSeaCritter
 }
 
 // Create
 
 function create(attributes) {
     // Create new animal 'record' copying attributes across and assign an id to it
-    const newAnimal = Object.assign({}, attributes, {
+    const newSeaCritter = Object.assign({}, attributes, {
         id: nextID
     })
     // Increment id for next animal
     nextID += 1
     // Add to our array that stores our data
-    animals.push(newAnimal)
-    return newAnimal
+    seaCritters.push(newSeaCritter)
+    return newSeaCritter
 }
 
 // Update
 
 function update(id, attributes) {
-    const animal = find(id)
-    if (!animal) {
+    const seaCritter = find(id)
+    if (!seaCritter) {
         return null
     }
-    Object.assign(animal, attributes)
-    return animal
+    Object.assign(seaCritter, attributes)
+    return seaCritter
 }
 
 // Destroy
 
 function destroy(id) {
     id = parseInt(id, 10)
-    index = animals.findIndex((animal) => animal.id === id )
+    index = seaCritters.findIndex((seaCritter) => seaCritter.id === id )
     if (index === -1) {
         return null
     }
     else {
-        removedAnimal = animals.splice(index, 1)
+        removedSeaCritter = seaCritters.splice(index, 1)
     }
-    return removedAnimal[0]
+    return removedSeaCritter[0]
 }
 
 
