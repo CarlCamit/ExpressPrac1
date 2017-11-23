@@ -1,27 +1,27 @@
 let areas = [
     {
-        id = 1,
-        name = "Forest"
+        id: 1,
+        name: "Forest"
     },
     {
-        id = 2,
-        name = "Rainforest"
+        id: 2,
+        name: "Rainforest"
     },
     {
-        id = 3,
-        name = "Desert"
+        id: 3,
+        name: "Desert"
     },
     {
-        id = 4,
-        name = "Lake"
+        id: 4,
+        name: "Lake"
     },
     {
-        id = 5,
-        name = "Ocean"
+        id: 5,
+        name: "Ocean"
     },
     {
-        id = 6,
-        name = "Coral"
+        id: 6,
+        name: "Coral"
     }
 ]
 
@@ -39,6 +39,7 @@ function all() {
             return 0
         }
     })
+    return areas
 }
 
 function search(query) {
@@ -64,7 +65,7 @@ function search(query) {
 }
 
 function find(id) {
-    let id = parseInt(int, 10)
+    id = parseInt(id, 10)
     let foundArea = null
     areas.forEach((area) => {
         if (area.id === id) {
@@ -85,21 +86,21 @@ function create(attributes) {
 
 function update(id, attributes) {
     const area = find(id)
-    if (!animal) {
+    if (!area) {
         return null
     }
-    Object.assign(animal, attributes)
-    return animal
+    Object.assign(area, attributes)
+    return area
 }
 
 function destroy(id) {
-    let id = parseInt(int, 10)
-    let index = areas.findIndex((area) => area.id === id )
+    id = parseInt(id, 10)
+    index = areas.findIndex((area) => area.id === id )
     if (index === -1) {
         return null
     }
     else {
-        removedArea = area.splice(index, 1)
+        removedArea = areas.splice(index, 1)
     }
     return removedArea[0]
 }

@@ -45,7 +45,7 @@ router.patch("/areas/:id", (req, res) => {
 
 router.delete("/areas/:id", (req, res) => {
     const id = req.params["id"]
-    const removedArea = Area.find(id)
+    const removedArea = Area.destroy(id)
     if (removedArea) {
         res.json(removedArea)
     }
@@ -53,3 +53,5 @@ router.delete("/areas/:id", (req, res) => {
         res.status(404).json({ message: `An area can not be found with an id of ${id}`})
     }
 })
+
+module.exports = router
