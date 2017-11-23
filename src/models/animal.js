@@ -36,7 +36,7 @@ let nextID = 7
 // Read
 
 function all() {
-    return animals.sort(function(a, b) {
+    animals.sort(function(a, b) {
         if (a.name < b.name) {
             return -1
         }
@@ -47,6 +47,29 @@ function all() {
             return 0
         }
     })
+    return animals
+}
+
+function search(query) {
+    const searchedAnimals = new Array()
+    animals.forEach((animal) => {
+        const name = animal.name.toLowerCase()
+        if (name.includes(query)) {
+            searchedAnimals.push(animal)
+        }
+    })
+    searchedAnimals.sort(function(a, b) {
+        if (a.name < b.name) {
+            return -1
+        }
+        else if (a.name > b.name) {
+            return 1
+        }
+        else {
+            return 0
+        }
+    })
+    return searchedAnimals
 }
 
 function find(id) {
@@ -103,6 +126,7 @@ function destroy(id) {
 
 module.exports = {
     all,
+    search,
     find, 
     create,
     update,

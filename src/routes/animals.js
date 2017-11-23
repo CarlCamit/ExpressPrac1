@@ -2,8 +2,15 @@ const express = require('express')
 const Animal = require('../models/animal')
 const router = express.Router()
 
-router.get("/animals", (req, res) => {  
-    res.json(Animal.all())
+router.get("/animals", (req, res) => {
+    if (Object.keys(req.query).length !== 0) {
+        const nameQuery = req.query.name.toLowerCase()
+        let searchedAnimals = Animal.search(nameQuery)
+        res.json(searchedAnimals)
+    }
+    else {
+        res.json(Animal.all())
+    }
 })
 
 router.get("/animals/:id", (req, res) => {

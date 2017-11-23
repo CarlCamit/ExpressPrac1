@@ -36,7 +36,7 @@ let nextID = 7
 // Read
 
 function all() {
-    return seaCritters.sort(function(a, b) {
+    seaCritters.sort(function(a, b) {
         if (a.name < b.name) {
             return -1
         }
@@ -47,6 +47,29 @@ function all() {
             return 0
         }
     })
+    return seaCritters
+}
+
+function search(query) {
+    const searchedSeaCritters = new Array()
+    seaCritters.forEach((seaCritter) => {
+        const name = seaCritter.name.toLowerCase()
+        if (name.includes(query)) {
+            searchedSeaCritters.push(seaCritter)
+        }
+    })
+    searchedSeaCritters.sort(function(a, b) {
+        if (a.name < b.name) {
+            return -1
+        }
+        else if (a.name > b.name) {
+            return 1
+        }
+        else {
+            return 0
+        }
+    })
+    return searchedSeaCritters
 }
 
 function find(id) {
